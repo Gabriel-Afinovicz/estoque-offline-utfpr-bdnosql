@@ -59,3 +59,11 @@ O resto da Parte 3 é diagrama, não print:
 
 **P2, P6, P7, P8, P9 e P11.** Esses mostram o problema, o conflito, a resolução, a modelagem que evita
 o conflito e o limite do offline, que é exatamente o que a especificação pede nas três partes.
+
+---
+
+## Prints já tirados
+
+Os prints do roteiro já estão em [`docs/prints/`](docs/prints/), gerados no laboratório
+(P1 a P11, mais variações). Se preferirem refazer no próprio PC, sigam os passos acima: o
+resultado é o mesmo.
