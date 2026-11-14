@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Estoque Offline · PouchDB + CouchDB</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div>
+      <h1>Estoque Offline</h1>
+      <p class="sub">Laboratório de offline-first e sincronização · PouchDB no aparelho, CouchDB no servidor</p>
+    </div>
+    <div class="topo-acoes">
+      <div class="modo" role="group" aria-label="Como registrar a baixa">
+        <span class="modo-rotulo">Como registrar a baixa:</span>
+        <button data-modo="campo" class="modo-btn">Alterar o campo <code>quantidade</code></button>
+        <button data-modo="mov" class="modo-btn">Gravar uma movimentação</button>
+      </div>
+      <a class="btn-sec" id="link-fauxton" target="_blank" rel="noopener">Abrir Fauxton</a>
+      <button class="btn-sec" id="btn-zerar">Zerar laboratório</button>
+    </div>
+  </header>
+
+  <main class="palco">
+    <section class="celular" id="celular-A"></section>
+
+    <section class="servidor">
+      <div class="servidor-cab">
+        <h2>🗄️ Servidor · CouchDB</h2>
+        <span class="tag" id="servidor-status">conectando…</span>
+      </div>
+      <p class="explica">Banco <code>estoque</code>. Cada celular troca documentos com ele nos dois sentidos.</p>
+      <div class="setas" aria-hidden="true">
+        <span id="seta-A">⇄ Celular A</span>
+        <span id="seta-B">Celular B ⇄</span>
+      </div>
+      <div id="servidor-lista"></div>
+      <p class="rodape-servidor" id="servidor-contagem"></p>
+    </section>
+
+    <section class="celular" id="celular-B"></section>
+  </main>
+
+  <section class="log">
+    <div class="log-cab">
+      <h2>O que está acontecendo</h2>
+      <button class="btn-sec pequeno" id="btn-limpar-log">Limpar</button>
+    </div>
+    <ol id="log-lista"></ol>
+  </section>
+
+  <div class="modal" id="modal" hidden>
+    <div class="modal-caixa">
+      <button class="modal-fechar" id="modal-fechar" aria-label="Fechar">×</button>
+      <div id="modal-conteudo"></div>
+    </div>
+  </div>
+
+  <script src="vendor/pouchdb.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
